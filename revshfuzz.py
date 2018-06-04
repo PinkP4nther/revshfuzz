@@ -17,7 +17,7 @@ import select
 commonPorts = [20,21,22,23,25,53,80,81,110,139,143,443,445,465,587,993,995,2222,3306,8000,8080,8181,8443,9050]
 if len(sys.argv) >= 2:
     URL = str(sys.argv[1])
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"
 UA = "Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0"
 headers = {'User-Agent': str(UA)}
 
