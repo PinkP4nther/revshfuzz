@@ -3,33 +3,43 @@ A tool for fuzzing for ports that allow outgoing connections
 
 I recommend stopping all listening services as they could interfere with the binding in the script!
 
-1 - Upload pd.php to target webserver
-2 - sudo python revshfuzz.py http://target/pd.php
+1 - Edit pd.php to your machines IP then upload pd.php to target webserver
+2 - sudo ./revshfuzz.py -h
 
-[user][D3V][revshfuzz]> sudo python revshfuzz.py http://127.0.0.1/pd.php
-[sudo] password for user: 
-[+] Port: 20 Allowed
-[+] Port: 21 Allowed
-[+] Port: 22 Allowed
-[+] Port: 23 Allowed
-[+] Port: 25 Blocked
-[+] Port: 53 Allowed
-[+] Port: 80 Allowed
-[+] Port: 81 Allowed
-[+] Port: 110 Blocked
-[+] Port: 139 Blocked
-[+] Port: 143 Blocked
-[+] Port: 443 Allowed
-[+] Port: 445 Allowed
-[+] Port: 465 Allowed
-[+] Port: 587 Allowed
-[+] Port: 993 Allowed
-[+] Port: 995 Allowed
-[+] Port: 2222 Allowed
-[+] Port: 3306 Allowed
-[+] Port: 8000 Allowed
-[+] Port: 8080 Allowed
-[+] Port: 8181 Allowed
-[+] Port: 8443 Allowed
-[+] Port: 9050 Allowed
-[+] Finished
+[pinky][0xefbeadde][revshfuzz]
+| sudo ./revshfuzz.py -u http://192.168.1.13/pd.php -m c -b 192.168.1.7 -ua "spoofed-user-agent"
+
+-=< Reverse Shell Fuzzer 0.0.2 >=-
+By @Pink_P4nther <pinkp4nther@protonmail.com>
+A weak firewall rule discovery tool
+
+[*] URL: http://192.168.1.13/pd.php
+[*] MODE: c
+[*] Bind Address: 192.168.1.7
+[*] User Agent: spoofed-user-agent
+[+] Outbound [Allowed] @ Port: 20
+[+] Outbound [Allowed] @ Port: 21
+[+] Outbound [Allowed] @ Port: 22
+[+] Outbound [Allowed] @ Port: 23
+[+] Outbound [Allowed] @ Port: 25
+[+] Outbound [Allowed] @ Port: 53
+[+] Outbound [Blocked] @ Port: 80
+[+] Outbound [Allowed] @ Port: 81
+[+] Outbound [Allowed] @ Port: 110
+[+] Outbound [Blocked] @ Port: 139
+[+] Outbound [Blocked] @ Port: 143
+[+] Outbound [Blocked] @ Port: 443
+[+] Outbound [Allowed] @ Port: 445
+[+] Outbound [Allowed] @ Port: 465
+[+] Outbound [Allowed] @ Port: 587
+[+] Outbound [Allowed] @ Port: 993
+[+] Outbound [Allowed] @ Port: 995
+[+] Outbound [Allowed] @ Port: 2222
+[+] Outbound [Blocked] @ Port: 3306
+[+] Outbound [Allowed] @ Port: 8000
+[+] Outbound [Blocked] @ Port: 8080
+[+] Outbound [Allowed] @ Port: 8181
+[+] Outbound [Allowed] @ Port: 8443
+[+] Outbound [Allowed] @ Port: 9050
+[*] Finished
+
